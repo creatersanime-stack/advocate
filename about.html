@@ -7,14 +7,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0F2044; --navy-light: #1A3260; --orange: #E8650A;
-    --orange-light: #FF7A1F; --orange-pale: #FFF3EA; --orange-mid: #FFDFC4;
-    --white: #FFFFFF; --off-white: #F8F7F4; --cream: #FDF9F5;
-    --text-dark: #1A2340; --text-mid: #4A5568; --text-light: #718096;
-    --border: #E8E4DC;
-    --shadow-sm: 0 2px 12px rgba(15,32,68,0.08);
-    --shadow-md: 0 8px 32px rgba(15,32,68,0.12);
-    --radius: 16px; --radius-sm: 10px;
+    --navy: #0F172A;
+    --navy-light: #1E293B;
+    --navy-mid: #334155;
+    --orange: #C9A227;
+    --orange-light: #D4AF37;
+    --orange-pale: #FEF9E7;
+    --orange-mid: #F5E095;
+    --white: #FFFFFF;
+    --off-white: #F8FAFC;
+    --cream: #F8FAFC;
+    --text-dark: #111827;
+    --text-mid: #475569;
+    --text-light: #64748B;
+    --border: #E2E8F0;
+    --shadow-sm: 0 2px 12px rgba(15,23,42,0.08);
+    --shadow-md: 0 8px 32px rgba(15,23,42,0.12);
+    --shadow-lg: 0 20px 60px rgba(15,23,42,0.18);
+    --radius: 16px;
+    --radius-sm: 10px;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -35,8 +46,8 @@
   .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
   .nav-links a { text-decoration: none; font-size: 13.5px; font-weight: 500; color: var(--text-mid); transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--orange); }
-  .nav-cta { background: var(--orange); color: white !important; padding: 9px 22px; border-radius: 8px; font-weight: 600 !important; transition: all 0.2s !important; }
-  .nav-cta:hover { background: var(--orange-light) !important; transform: translateY(-1px); }
+  .nav-cta { background: var(--navy); color: white !important; padding: 9px 22px; border-radius: 8px; font-weight: 600 !important; transition: all 0.2s !important; }
+  .nav-cta:hover { background: var(--navy-light) !important; transform: translateY(-1px); }
 
   .page-hero {
     background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1e3f72 100%);
@@ -156,8 +167,8 @@
   .cta-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 48px; }
   .cta-text h2 { font-family: 'Lora', serif; font-size: clamp(26px,3vw,38px); color: white; font-weight: 600; margin-bottom: 12px; }
   .cta-text p { color: rgba(255,255,255,0.65); font-size: 15px; max-width: 540px; line-height: 1.65; }
-  .btn-primary { padding: 14px 30px; background: linear-gradient(135deg, var(--orange), var(--orange-light)); border: none; border-radius: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 700; color: white; cursor: pointer; box-shadow: 0 6px 24px rgba(232,101,10,0.4); transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
-  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(232,101,10,0.5); }
+  .btn-primary { padding: 14px 30px; background: var(--navy); border: none; border-radius: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 700; color: white; cursor: pointer; box-shadow: var(--shadow-md); transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); background: var(--navy-light); }
   .btn-outline { padding: 14px 28px; background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.25); border-radius: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600; color: white; cursor: pointer; transition: all 0.25s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
   .btn-outline:hover { background: rgba(255,255,255,0.15); }
   .cta-btns { display: flex; gap: 14px; flex-shrink: 0; }
@@ -182,17 +193,24 @@
   .wa-fab { position: fixed; bottom: 28px; right: 28px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 8px 24px rgba(37,211,102,0.45); text-decoration: none; z-index: 999; }
   ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-thumb { background: rgba(232,101,10,0.3); border-radius: 3px; }
 </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <div class="nav-logo-icon">⚖</div>
+    <div class="nav-logo-icon">&#9878;</div>
     <div class="nav-logo-text">
       <strong>ANAND KUMAR AWASTHI</strong>
       <span>& Associates · Advocates & Tax Consultants</span>
     </div>
   </a>
+  <input class="nav-check" type="checkbox" id="nav-toggle" aria-label="Open navigation menu">
+  <label class="nav-toggle" for="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" class="active">About</a></li>

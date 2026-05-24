@@ -7,23 +7,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0F2044;
-    --navy-light: #1A3260;
-    --navy-mid: #243B6E;
-    --orange: #E8650A;
-    --orange-light: #FF7A1F;
-    --orange-pale: #FFF3EA;
-    --orange-mid: #FFDFC4;
+    --navy: #0F172A;
+    --navy-light: #1E293B;
+    --navy-mid: #334155;
+    --orange: #C9A227;
+    --orange-light: #D4AF37;
+    --orange-pale: #FEF9E7;
+    --orange-mid: #F5E095;
     --white: #FFFFFF;
-    --off-white: #F8F7F4;
-    --cream: #FDF9F5;
-    --text-dark: #1A2340;
-    --text-mid: #4A5568;
-    --text-light: #718096;
-    --border: #E8E4DC;
-    --shadow-sm: 0 2px 12px rgba(15,32,68,0.08);
-    --shadow-md: 0 8px 32px rgba(15,32,68,0.12);
-    --shadow-lg: 0 20px 60px rgba(15,32,68,0.18);
+    --off-white: #F8FAFC;
+    --cream: #F8FAFC;
+    --text-dark: #111827;
+    --text-mid: #475569;
+    --text-light: #64748B;
+    --border: #E2E8F0;
+    --shadow-sm: 0 2px 12px rgba(15,23,42,0.08);
+    --shadow-md: 0 8px 32px rgba(15,23,42,0.12);
+    --shadow-lg: 0 20px 60px rgba(15,23,42,0.18);
     --radius: 16px;
     --radius-sm: 10px;
   }
@@ -57,11 +57,11 @@
   .nav-links a { text-decoration: none; font-size: 13.5px; font-weight: 500; color: var(--text-mid); transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--orange); }
   .nav-cta {
-    background: var(--orange); color: white !important;
+    background: var(--navy); color: white !important;
     padding: 9px 22px; border-radius: 8px; font-weight: 600 !important;
-    transition: all 0.2s !important; box-shadow: 0 4px 12px rgba(232,101,10,0.3);
+    transition: all 0.2s !important; box-shadow: var(--shadow-sm);
   }
-  .nav-cta:hover { background: var(--orange-light) !important; transform: translateY(-1px); }
+  .nav-cta:hover { background: var(--navy-light) !important; transform: translateY(-1px); }
 
   /* GALLERY HERO */
   .gallery-hero {
@@ -232,18 +232,25 @@
     .footer-grid { grid-template-columns: 1fr; }
   }
 </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <div class="nav-logo-icon">⚖</div>
+    <div class="nav-logo-icon">&#9878;</div>
     <div class="nav-logo-text">
       <strong>ANAND KUMAR AWASTHI</strong>
       <span>& Associates · Advocates & Tax Consultants</span>
     </div>
   </a>
+  <input class="nav-check" type="checkbox" id="nav-toggle" aria-label="Open navigation menu">
+  <label class="nav-toggle" for="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
