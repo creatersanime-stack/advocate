@@ -7,6 +7,7 @@
   <title>Anand Kumar Awasthi & Associates — Legal & Tax Consultants, Lucknow</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <style>
     :root {
       --navy: #0F172A;
@@ -954,27 +955,58 @@
       color: var(--orange);
     }
 
-    /* WhatsApp FAB */
-    .wa-fab {
+    /* Contact FABs */
+    .contact-fab-group {
       position: fixed;
       bottom: 28px;
       right: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .wa-fab,
+    .call-fab {
       width: 56px;
       height: 56px;
-      background: #25D366;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 28px;
-      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
       text-decoration: none;
-      z-index: 999;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .wa-fab {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
       animation: waPulse 2.5s infinite;
     }
 
-    @keyframes waPulse {
+    .wa-fab:hover {
+      transform: scale(1.15) translateY(-8px);
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+    }
 
+    .call-fab {
+      background: #0078D4;
+      color: white;
+      box-shadow: 0 8px 24px rgba(0, 120, 212, 0.45);
+      animation: callPulse 2.5s infinite 0.3s;
+    }
+
+    .call-fab:hover {
+      transform: scale(1.15) translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0, 120, 212, 0.6);
+    }
+
+    @keyframes waPulse {
       0%,
       100% {
         box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
@@ -982,6 +1014,32 @@
 
       50% {
         box-shadow: 0 8px 36px rgba(37, 211, 102, 0.7);
+      }
+    }
+
+    @keyframes callPulse {
+      0%,
+      100% {
+        box-shadow: 0 8px 24px rgba(201, 162, 39, 0.45);
+      }
+
+      50% {
+        box-shadow: 0 8px 36px rgba(201, 162, 39, 0.7);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-fab-group {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+      }
+
+      .wa-fab,
+      .call-fab {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
       }
     }
 
@@ -1037,8 +1095,8 @@
         <p class="hero-sub">We help startups, businesses, freelancers, and corporations navigate Civil Litigation, GST,
           ITR Filing, and Corporate Compliance under the expert guidance of Senior Advocate Anand Kumar Awasthi.</p>
         <div class="hero-btns">
-          <a href="contact.html" class="btn-primary">📅 Book Consultation</a>
-          <a href="https://wa.me/919999999999" class="btn-outline">💬 WhatsApp Now</a>
+          <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-primary">📅 Book Consultation</a>
+          <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-outline">💬 WhatsApp Now</a>
         </div>
       </div>
       <div class="hero-visual">
@@ -1306,7 +1364,7 @@
           guidance tailored to your needs.</p>
       </div>
       <div class="cta-btns">
-        <a href="contact.html" class="btn-primary">📅 Book Free Consultation</a>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-primary">📅 Book Free Consultation</a>
         <a href="services.html" class="btn-outline" style="color:white;">Explore Services →</a>
       </div>
     </div>
@@ -1359,7 +1417,7 @@
         </div>
         <div class="fci">
           <div class="fci-icon">📞</div>
-          <div class="fci-text">+91 98XXX XXXXX</div>
+          <div class="fci-text">+91 9415034775</div>
         </div>
         <div class="fci">
           <div class="fci-icon">✉️</div>
@@ -1377,7 +1435,10 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/919999999999" class="wa-fab" title="WhatsApp Us">💬</a>
+  <div class="contact-fab-group">
+    <a href="tel:+919415034775" class="call-fab" title="Call Us">📞</a>
+    <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="wa-fab" title="WhatsApp Us"><i class="bi bi-whatsapp"></i></a>
+  </div>
 </body>
 
 </html>

@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services — Anand Kumar Awasthi & Associates</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 <style>
   :root {
     --navy: #0F172A;
@@ -115,11 +115,37 @@
 
   /* ─── PAGE HERO ─── */
   .page-hero {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1e3f72 100%);
     padding: 80px 48px 70px;
     text-align: center;
     position: relative;
     overflow: hidden;
+  }
+  /* ─── HEADER BG VIDEO ─── */
+  .page-hero.header-bg-service {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1e3f72 100%);
+  }
+  .page-hero.header-bg-service video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .page-hero.header-bg-service::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.65) 0%, rgba(30, 63, 114, 0.65) 100%);
+    z-index: 1;
+  }
+  .page-hero.header-bg-service > * {
+    position: relative;
+    z-index: 2;
   }
   .page-hero::before {
     content: '';
@@ -966,24 +992,65 @@
   }
   .footer-badge span { color: var(--orange); }
 
-  /* ─── WHATSAPP FAB ─── */
-  .whatsapp-fab {
+  /* ─── CONTACT FABs ─── */
+  .contact-fab-group {
     position: fixed;
-    bottom: 28px; right: 28px;
-    width: 54px; height: 54px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 26px;
-    box-shadow: 0 8px 24px rgba(37,211,102,0.4);
-    cursor: pointer;
+    bottom: 28px;
+    right: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     z-index: 999;
-    text-decoration: none;
-    animation: pulse 2.5s infinite;
   }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,0.4); }
-    50% { box-shadow: 0 8px 32px rgba(37,211,102,0.65); }
+
+  .whatsapp-fab,
+  .call-fab {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .whatsapp-fab {
+    background: #25D366;
+    color: white;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+    animation: waPulse 2.5s infinite;
+  }
+
+  .whatsapp-fab:hover {
+    transform: scale(1.15) translateY(-8px);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+  }
+
+  .call-fab {
+    background: #0078D4;
+    color: white;
+    box-shadow: 0 8px 24px rgba(0, 120, 212, 0.45);
+    animation: callPulse 2.5s infinite 0.3s;
+  }
+
+  .call-fab:hover {
+    transform: scale(1.15) translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 120, 212, 0.6);
+  }
+
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45); }
+    50% { box-shadow: 0 8px 36px rgba(37, 211, 102, 0.7); }
+  }
+
+  @keyframes callPulse {
+    0%, 100% { box-shadow: 0 8px 24px rgba(201, 162, 39, 0.45); }
+    50% { box-shadow: 0 8px 36px rgba(201, 162, 39, 0.7); }
   }
 
   /* ─── SCROLLBAR ─── */
@@ -1021,7 +1088,11 @@
 </nav>
 
 <!-- ══════ PAGE HERO ══════ -->
-<div class="page-hero">
+<div class="page-hero header-bg-service">
+  <video autoplay muted loop playsinline>
+    <source src="./images/bg-header-service.mp4" type="video/mp4">
+    <source src="./images/bg-header-service.webm" type="video/webm">
+  </video>
   <div class="hero-badge">⚡ Professional Legal & Financial Services</div>
   <h1>Comprehensive Legal & <em>Financial Architectures</em></h1>
   <p>From GST registration to civil litigation — we handle every dimension of your compliance journey with precision, speed, and absolute confidentiality.</p>
@@ -1049,7 +1120,7 @@
       </div>
       <div class="card-actions">
         <button class="btn-info" onclick="openInfo('gst')">📖 Get Started</button>
-        <button class="btn-book" onclick="openBooking('GST Registration & Filing')">📅 Book Appointment</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
       </div>
     </div>
 
@@ -1066,7 +1137,7 @@
       </div>
       <div class="card-actions">
         <button class="btn-info" onclick="openInfo('itr')">📖 Get Started</button>
-        <button class="btn-book" onclick="openBooking('Income Tax Return Filing')">📅 Book Appointment</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
       </div>
     </div>
 
@@ -1083,7 +1154,7 @@
       </div>
       <div class="card-actions">
         <button class="btn-info" onclick="openInfo('company')">📖 Get Started</button>
-        <button class="btn-book" onclick="openBooking('Company & Corporate Registration')">📅 Book Appointment</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
       </div>
     </div>
 
@@ -1100,7 +1171,7 @@
       </div>
       <div class="card-actions">
         <button class="btn-info" onclick="openInfo('msme')">📖 Get Started</button>
-        <button class="btn-book" onclick="openBooking('MSME / Udyam Registration')">📅 Book Appointment</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
       </div>
     </div>
 
@@ -1117,7 +1188,7 @@
       </div>
       <div class="card-actions">
         <button class="btn-info" onclick="openInfo('audit')">📖 Get Started</button>
-        <button class="btn-book" onclick="openBooking('Audit & Corporate Compliance')">📅 Book Appointment</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
       </div>
     </div>
 
@@ -1134,7 +1205,7 @@
       </div>
       <div class="card-actions">
         <button class="btn-info" onclick="openInfo('startup')">📖 Get Started</button>
-        <button class="btn-book" onclick="openBooking('Startup Advisory & Brand Setup')">📅 Book Appointment</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
       </div>
     </div>
 
@@ -1151,7 +1222,7 @@
       </div>
       <div class="card-actions">
         <button class="btn-info" onclick="openInfo('roc')">📖 Get Started</button>
-        <button class="btn-book" onclick="openBooking('ROC Filing & Secretarial Services')">📅 Book Appointment</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
       </div>
     </div>
 
@@ -1168,7 +1239,7 @@
       </div>
       <div class="card-actions">
         <button class="btn-info" onclick="openInfo('legal')">📖 Get Started</button>
-        <button class="btn-book" onclick="openBooking('Civil Legal Consultation')">📅 Book Appointment</button>
+        <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="btn-book">📅 Book Appointment</a>
       </div>
     </div>
 
@@ -1285,7 +1356,7 @@
       </div>
       <div class="footer-contact-item">
         <div class="fci-icon">📞</div>
-        <div class="fci-text">+91 98XXX XXXXX</div>
+        <div class="fci-text">+91 9415034775</div>
       </div>
       <div class="footer-contact-item">
         <div class="fci-icon">✉️</div>
@@ -1303,8 +1374,11 @@
   </div>
 </footer>
 
-<!-- WhatsApp FAB -->
-<a href="https://wa.me/919999999999" class="whatsapp-fab" title="Chat on WhatsApp">💬</a>
+<!-- Contact FABs -->
+<div class="contact-fab-group">
+  <a href="tel:+919415034775" class="call-fab" title="Call Us">📞</a>
+  <a href="https://wa.me/919415034775?utm_source=chatgpt.com" class="whatsapp-fab" title="Chat on WhatsApp"><i class="bi bi-whatsapp"></i></a>
+</div>
 
 <!-- ══════ INFO MODAL OVERLAY ══════ -->
 <div class="overlay" id="info-overlay" onclick="closeOverlay('info-overlay')">
@@ -1329,102 +1403,12 @@
         <h4>Process Overview</h4>
         <ul class="info-list" id="modal-process"></ul>
       </div>
-      <button class="modal-book-btn" id="modal-book-cta">📅 Book Appointment for This Service</button>
+      <button class="modal-book-btn" id="modal-book-cta"> Book Appointment for This Service</button>
     </div>
   </div>
 </div>
 
-<!-- ══════ BOOKING MODAL OVERLAY ══════ -->
-<div class="overlay" id="booking-overlay" onclick="closeOverlay('booking-overlay')">
-  <div class="booking-modal" onclick="event.stopPropagation()">
-    <div class="booking-header">
-      <h2>📅 Book an Appointment</h2>
-      <p id="booking-service-name">Service: GST Registration</p>
-      <button class="modal-close" onclick="closeOverlay('booking-overlay')">✕</button>
-    </div>
-    <div class="booking-body" id="booking-body">
-      <!-- Step 1: Form -->
-      <div id="booking-form-step">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Full Name <span>*</span></label>
-            <input type="text" id="book-name" placeholder="Your full name">
-          </div>
-          <div class="form-group">
-            <label>Phone Number <span>*</span></label>
-            <input type="tel" id="book-phone" placeholder="+91 98XXX XXXXX">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" id="book-email" placeholder="your@email.com">
-        </div>
-        <div class="form-group">
-          <label>Service Required <span>*</span></label>
-          <select id="book-service">
-            <option value="">Select a service...</option>
-            <option>GST Registration & Filing</option>
-            <option>Income Tax Return Filing</option>
-            <option>Company & Corporate Registration</option>
-            <option>MSME / Udyam Registration</option>
-            <option>Audit & Corporate Compliance</option>
-            <option>Startup Advisory & Brand Setup</option>
-            <option>ROC Filing & Secretarial Services</option>
-            <option>Civil Legal Consultation</option>
-            <option>Free Consultation</option>
-          </select>
-        </div>
 
-        <div class="divider"></div>
-
-        <div class="form-group">
-          <label>Preferred Date <span>*</span></label>
-          <input type="date" id="book-date">
-        </div>
-
-        <div class="form-group">
-          <label>Preferred Time Slot</label>
-          <div class="time-slots">
-            <div class="time-slot" onclick="selectSlot(this)">10:00 AM</div>
-            <div class="time-slot" onclick="selectSlot(this)">11:00 AM</div>
-            <div class="time-slot" onclick="selectSlot(this)">12:00 PM</div>
-            <div class="time-slot" onclick="selectSlot(this)">02:00 PM</div>
-            <div class="time-slot" onclick="selectSlot(this)">03:30 PM</div>
-            <div class="time-slot" onclick="selectSlot(this)">05:00 PM</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Consultation Mode</label>
-          <div class="mode-toggle">
-            <div class="mode-btn selected" onclick="selectMode(this)">🏢 In-Office Visit</div>
-            <div class="mode-btn" onclick="selectMode(this)">💻 Online / Video Call</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Message / Additional Details</label>
-          <textarea id="book-message" placeholder="Briefly describe your requirement or any specific questions..."></textarea>
-        </div>
-
-        <button class="submit-btn" onclick="submitBooking()">
-          ✅ Confirm Appointment Request
-        </button>
-      </div>
-
-      <!-- Success state (hidden by default) -->
-      <div id="booking-success-step" style="display:none;">
-        <div class="success-state">
-          <div class="success-icon">✓</div>
-          <h3>Appointment Requested!</h3>
-          <p>Thank you! Your appointment request has been received. Our team will call you within <strong>2 working hours</strong> to confirm the slot.</p>
-          <br>
-          <p style="font-size:12.5px;color:var(--text-light);">For urgent queries, WhatsApp us at <strong style="color:var(--orange);">+91 98XXX XXXXX</strong></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script>
 // ─── SERVICE DATA ───
@@ -1739,8 +1723,7 @@ function openInfo(key) {
 
   // Book CTA
   document.getElementById('modal-book-cta').onclick = () => {
-    closeOverlay('info-overlay');
-    setTimeout(() => openBooking(d.bookService), 250);
+    window.open('https://wa.me/919415034775?utm_source=chatgpt.com', '_blank');
   };
 
   showOverlay('info-overlay');
